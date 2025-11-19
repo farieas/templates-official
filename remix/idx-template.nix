@@ -1,7 +1,7 @@
 { pkgs, ... }: {
+  channel = "stable=25.05";
   packages = [
-    pkgs.nodejs_20
-    pkgs.git
+    pkgs.nodejs_24
   ];
   bootstrap = ''
     npx create-remix@latest --yes --no-install --no-git-init --no-init-script "$WS_NAME"
