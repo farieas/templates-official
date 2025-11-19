@@ -4,8 +4,11 @@
     pkgs.nodejs_24
   ];
   bootstrap = ''
-    # Create Remix app directly in output directory
-    npx create-remix@latest "$out" --yes --no-install --no-git-init --no-init-script
+    # Create Remix app in a temporary directory
+    npx create-remix@latest remix-app --yes --no-install --no-git-init --no-init-script
+    
+    # Move all contents from remix-app to $out
+    cp -r remix-app/. "$out/"
     
     # Create .idx directory
     mkdir -p "$out/.idx"
