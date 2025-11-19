@@ -5,11 +5,9 @@
   ];
   bootstrap = ''
     # Create Remix app in a temporary directory
-    npx create-remix@latest remix-app --yes --no-install --no-git-init --no-init-script
-    
-    # Move all contents from remix-app to $out
-    cp -r remix-app/. "$out/"
-    
+    mkdir "$out"
+    npx create-remix@latest "$out" --yes --no-install --no-git-init --no-init-script
+      
     # Create .idx directory
     mkdir -p "$out/.idx"
     
