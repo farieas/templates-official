@@ -5,12 +5,8 @@
   ];
 
   bootstrap = ''
-    npx --prefer-offline create-remix@latest \
-      --yes \
-      --no-install \
-      --no-git-init \
-      --no-init-script \
-      "$WS_NAME"
+    npx --prefer-offline create-remix@latest --yes --template remix --no-install --no-git-init "$WS_NAME"
+
 
     mkdir -p "$WS_NAME/.idx"
     cp ${./dev.nix} "$WS_NAME/.idx/dev.nix"
