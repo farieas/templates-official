@@ -9,7 +9,6 @@
     npx create-remix@latest "$WS_NAME"
 
     mkdir -p "$WS_NAME/.idx"
-    mv "$WS_NAME" "$out"
     cp ${./dev.nix} "$WS_NAME/.idx/dev.nix"
     chmod -R +w "$WS_NAME"
     mv "$WS_NAME" "$out"
