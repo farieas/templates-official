@@ -5,20 +5,19 @@
   ];
 
   bootstrap = ''
-    npx --prefer-offline create-remix@latest --yes --template remix --no-install --no-git-init "$WS_NAME"
-
+    mkdir -p "$WS_NAME"
+    npx create-remix@latest "$WS_NAME"
 
     mkdir -p "$WS_NAME/.idx"
+    mv "$WS_NAME" "$out"
     cp ${./dev.nix} "$WS_NAME/.idx/dev.nix"
+    chmod -R +w "$WS_NAME"
+    mv "$WS_NAME" "$out"
 
     chmod -R u+w "$WS_NAME"
     mv "$WS_NAME" "$out"
 
-    mkdir -p "$out/.idx"
-    cp ${./.idx/airules.md} "$out/.idx/airules.md"
-    cp "$out/.idx/airules.md" "$out/GEMINI.md"
-
-    cd "$out"
-    npm install --package-lock-only --ignore-scripts
+   chmod -R u+w "$out"
+    cd "$out"; npm install --package-lock-only --ignore-scripts
   '';
 }
