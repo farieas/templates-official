@@ -6,7 +6,7 @@
 
   bootstrap = ''
     mkdir -p "$WS_NAME"
-    npx create-remix@latest "$WS_NAME"
+    npx create-remix@latest --template remix-run/remix/templates/remix "$WS_NAME"
 
     mkdir -p "$WS_NAME/.idx/"
     cp -rf ${./dev.nix} "$WS_NAME/.idx/dev.nix"
