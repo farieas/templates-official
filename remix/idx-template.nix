@@ -4,18 +4,25 @@
     pkgs.nodejs_24
   ];
   bootstrap = ''
-    npx create-remix@latest --yes --no-install --no-git-init --no-init-script "$WS_NAME"
-    mkdir -p "$WS_NAME/.idx/"
-    cp -rf ${./dev.nix} "$WS_NAME/.idx/dev.nix"
-    chmod -R +w "$WS_NAME"
-    mv "$WS_NAME" "$out"
-
+    # Create Remix app directly in output directory
+    npx create-remix@latest "$out" --yes --no-install --no-git-init --no-init-script
+    
+    # Create .idx directory
     mkdir -p "$out/.idx"
+    
+    # Copy dev.nix
+    cp -rf ${./dev.nix} "$out/.idx/dev.nix"
+    
+    # Copy airules.md if it exists
+    if [ -f ${./.idx/airules.md} ]; then
+      cp -rf ${./.idx/airules.md} "$out/.idx/airules.md"
+      cp -rf ${./.idx/airules.md} "$out/GEMINI.md"
+    fi
+    
+    # Set permissions
     chmod -R u+w "$out"
-    cp -rf ${./.idx/airules.md} "$out/.idx/airules.md"
-    cp -rf "$out/.idx/airules.md" "$out/GEMINI.md"
-    chmod -R u+w "$out"
-
-    cd "$out"; npm install --package-lock-only --ignore-scripts
+    
+    # Install dependencies
+    cd "$out" && npm install --package-lock-only --ignore-scripts
   '';
 }
