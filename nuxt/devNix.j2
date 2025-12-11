@@ -8,20 +8,21 @@
     "bun": {
         "packages": "pkgs.nodejs pkgs.bun",
         "install": "bun i @expo/ngrok@^4.1.0",
+        "startServer": "bun run dev",
         "previewWebPrefix": "\"bun\" \"web\"",
-        "previewAndroidPrefix": "bun android"
+        
     },
     "pnpm": {
         "packages": "pkgs.nodejs pkgs.nodePackages.pnpm",
         "install": "pnpm add @expo/ngrok@^4.1.0 @expo/metro-runtime",
+        "startServer": "pnpm run dev",
         "previewWebPrefix": "\"pnpm\" \"web\"",
-        "previewAndroidPrefix": "pnpm android"
     },
     "yarn": {
         "packages": "pkgs.nodejs pkgs.yarn",
         "install": "yarn && yarn add @expo/ngrok@^4.1.0",
+        "startServer": "yarn run dev",
         "previewWebPrefix": "\"yarn\" \"web\"",
-        "previewAndroidPrefix": "yarn android"
     },
 }[packageManager]%}# To learn more about how to use Nix to configure your environment
 # see: https://developers.google.com/idx/guides/customize-idx-env
