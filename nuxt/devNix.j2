@@ -14,7 +14,7 @@
     },
     "pnpm": {
         "packages": "pkgs.nodejs_24 pkgs.nodePackages.pnpm",
-        "install": "pnpm config set telemetry false && pnpm install",
+        "install": "pnpm install --frozen-lockfile",
         "startServer": "pnpm run dev",
         "previewWebPrefix": "\"npm\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\""
     },
