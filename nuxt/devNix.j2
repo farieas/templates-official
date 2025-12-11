@@ -1,7 +1,7 @@
 {% set perPackageManager = {
     "npm": {
         "packages": "pkgs.nodejs",
-        "install": "npm ci --no-audit --prefer-offline --no-progress --timing",
+        "install": "npm install && npm ci --no-audit --prefer-offline --no-progress --timing",
         "previewWebPrefix": "\"npm\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\""
     },
     "bun": {
