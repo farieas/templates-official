@@ -2,7 +2,7 @@
    channel = "stable-25.05";
      packages =
     [
-      pkgs.nodejs_ 
+      pkgs.nodejs_24
       pkgs.j2cli
       pkgs.nixfmt
     ]
