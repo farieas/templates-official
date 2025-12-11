@@ -1,7 +1,7 @@
 {% set perPackageManager = {
     "npm": {
         "packages": "pkgs.nodejs",
-        "install": "npm ci --prefer-offline --no-audit --no-progress --timing && npm i @expo/ngrok@^4.1.0",
+        "install": "npm ci --no-audit --prefer-offline --no-progress --timing",
         "previewWebPrefix": "\"npm\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\""
     },
     "bun": {
@@ -43,12 +43,7 @@
       };
       # Runs when a workspace restarted
       onStart = {
-        connect-device = ''
-          adb -s localhost:5554 wait-for-device
-        '';
-        android = ''
-          {{perPackageManager.previewAndroidPrefix}} --port 5554 --tunnel
-        '';
+        
       };
     };
     # Enable previews and customize configuration
@@ -57,11 +52,6 @@
       previews = {
         web = {
           command = [{{perPackageManager.previewWebPrefix}}];
-          manager = "web";
-        };
-        android = {
-          # noop
-          command = ["tail" "-f" "/dev/null"];
           manager = "web";
         };
       };
