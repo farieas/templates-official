@@ -1,7 +1,10 @@
 {
   "name": "Nuxt",
   "description": "The Intuitive Vue Framework",
-  "categories": ["Web app", "Vue"],
+  "categories": [
+    "Web app",
+    "Vue"
+  ],
   "icon": "https://www.gstatic.com/monospace/231115/nuxt_logo.svg",
   "publisher": "Google LLC",
   "params": [
@@ -15,6 +18,18 @@
         "yarn": "yarn",
         "pnpm": "pnpm",
         "bun": "bun"
+      },
+      "required": true
+    },
+    {
+      "id": "template",
+      "name": "Which template would you like to use?",
+      "type": "enum",
+      "options": {
+        "content": "Content-driven website",
+        "minimal": "Minimal setup for Nuxt 4 (recommended)",
+        "module": "Nuxt module",
+        "ui": "App using Nuxt UI"
       },
       "required": true
     }
