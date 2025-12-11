@@ -32,9 +32,10 @@
         --git-init no
 
       mkdir "$out"/.idx
-      
+      packageManager=${packageManager} j2 ${./devNix.j2} -o "$out/.idx/dev.nix"
+      nixfmt "$out"/.idx/dev.nix
       chmod -R +w "$out"
-
+      
       cp -rf ${./.idx/airules.md} "$out/.idx/airules.md"
       cp -rf "$out/.idx/airules.md" "$out/GEMINI.md"
       chmod -R u+w "$out"
