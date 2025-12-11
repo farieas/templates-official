@@ -18,6 +18,7 @@
         --package-manager ${packageManager} \
         --no-install \
         --git-init no \
+        --no-questions 
 
       mkdir "$out"/.idx
       cp ${./dev.nix} "$out"/.idx/dev.nix
