@@ -33,28 +33,6 @@
       cp ${./dev.nix} "$out"/.idx/dev.nix
       chmod -R +w "$out"
 
-      sed -i "s/PACKAGE_MANAGER/${packageManager}/g" "$out"/.idx/dev.nix
-
-      sed -i "s/PM_COMMAND/${
-        if packageManager == "npm" then
-          "npm ci --no-audit --prefer-offline --no-progress --timing"
-        else
-          "${packageManager} install"        
-      }/g" "$out"/.idx/dev.nix
-
-      sed -i "s/PM_NIX_PACKAGE/${
-        if packageManager == "npm" then
-          ""
-        else if packageManager == "pnpm" then
-          "pkgs.nodePackages.pnpm"
-        else if packageManager == "bun" then
-          "pkgs.bun"
-        else
-          "pkgs.yarn"
-      }/g" "$out"/.idx/dev.nix
-
-      mkdir -p "$out/.idx"
-      chmod -R u+w "$out"
       cp -rf ${./.idx/airules.md} "$out/.idx/airules.md"
       cp -rf "$out/.idx/airules.md" "$out/GEMINI.md"
       chmod -R u+w "$out"
