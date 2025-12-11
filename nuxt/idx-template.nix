@@ -16,8 +16,7 @@
         --template ${template} \
         --package-manager ${packageManager} \
         --no-install \
-        --git-init no \
-        --no-questions 
+        --git-init no
 
       mkdir "$out"/.idx
       cp ${./dev.nix} "$out"/.idx/dev.nix
