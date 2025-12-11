@@ -29,7 +29,8 @@
         --template ${template} \
         --package-manager ${packageManager} \
         --no-install \
-        --git-init no
+        --git-init no \
+        --no-question
 
       mkdir "$out"/.idx
       packageManager=${packageManager} j2 ${./devNix.j2} -o "$out/.idx/dev.nix"
