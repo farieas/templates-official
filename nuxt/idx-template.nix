@@ -13,7 +13,7 @@
     # npx --yes nuxi@latest init nuxiapp --template ui --package-manager npm --no-questions --no-install
     bootstrap = ''
       npx -yes nuxi@latest init "$out"  \
-        --template ui \
+        --template ${template} \
         --package-manager ${packageManager} \
         --no-install \
         --git-init no \
