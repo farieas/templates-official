@@ -7,16 +7,16 @@
     },
     "bun": {
         "packages": "pkgs.nodejs pkgs.bun",
-        "install": "bun i @expo/ngrok@^4.1.0",
+        "install": "bun install --frozen-lockfile --no-progress --offline",
         "startServer": "bun run dev",
-        "previewWebPrefix": "\"bun\" \"web\"",
+        "previewWebPrefix": "\"bun\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\"",
         
     },
     "pnpm": {
         "packages": "pkgs.nodejs pkgs.nodePackages.pnpm",
         "install": "pnpm install --frozen-lockfile --offline --reporter=silent --config.audit=false",
         "startServer": "pnpm run dev",
-        "previewWebPrefix": "\"pnpm\" \"web\"",
+        "previewWebPrefix": "\"pnpm\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\"",
     },
     "yarn": {
         "packages": "pkgs.nodejs pkgs.yarn",
