@@ -1,7 +1,7 @@
 { pkgs, packageManager, template,... }: {
    channel = "stable-25.05";
     packages = [
-      pkgs.nodejs
+      pkgs.nodejs_24
     ];
 
     # Available options as of 1/17/2024
