@@ -2,7 +2,7 @@
    channel = "stable-25.05";
      packages =
     [
-      pkgs.nodejs 
+      pkgs.nodejs_ 
       pkgs.j2cli
       pkgs.nixfmt
     ]
@@ -41,9 +41,7 @@
       chmod -R u+w "$out"
       ${if packageManager == "npm" then
         "( cd \$out && npm install --ignore-scripts )"
-      else if packageManager == "pnpm" then
-        "( cd \$out && pnpm install --ignore-scripts --frozen-lockfile )"
       else
-  ""}
+      ""}
     '';
 }
