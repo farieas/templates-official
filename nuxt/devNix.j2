@@ -14,7 +14,7 @@
     },
     "pnpm": {
         "packages": "pkgs.nodejs pkgs.nodePackages.pnpm",
-        "install": "pnpm install --offline --reporter=silent --config.audit=false",
+        "install": "pnpm install --frozen-lockfile --offline --no-optional",
         "startServer": "pnpm run dev",
         "previewWebPrefix": "\"pnpm\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\""
     },
