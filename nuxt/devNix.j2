@@ -6,19 +6,19 @@
         "previewWebPrefix": "\"npm\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\""
     },
     "bun": {
-        "packages": "pkgs.bun",
+        "packages": "pkgs.nodejs pkgs.bun",
         "install": "bun i @expo/ngrok@^4.1.0",
         "previewWebPrefix": "\"bun\" \"web\"",
         "previewAndroidPrefix": "bun android"
     },
     "pnpm": {
-        "packages": "pkgs.nodePackages.pnpm",
+        "packages": "pkgs.nodejs pkgs.nodePackages.pnpm",
         "install": "pnpm add @expo/ngrok@^4.1.0 @expo/metro-runtime",
         "previewWebPrefix": "\"pnpm\" \"web\"",
         "previewAndroidPrefix": "pnpm android"
     },
     "yarn": {
-        "packages": "pkgs.yarn",
+        "packages": "pkgs.nodejs pkgs.yarn",
         "install": "yarn && yarn add @expo/ngrok@^4.1.0",
         "previewWebPrefix": "\"yarn\" \"web\"",
         "previewAndroidPrefix": "yarn android"
