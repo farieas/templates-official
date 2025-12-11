@@ -14,7 +14,7 @@
     },
     "pnpm": {
         "packages": "pkgs.nodejs pkgs.nodePackages.pnpm",
-        "install": "pnpm add @expo/ngrok@^4.1.0 @expo/metro-runtime",
+        "install": "pnpm install --frozen-lockfile --offline --reporter=silent --config.audit=false",
         "startServer": "pnpm run dev",
         "previewWebPrefix": "\"pnpm\" \"web\"",
     },
