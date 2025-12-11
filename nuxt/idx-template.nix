@@ -1,8 +1,7 @@
 { pkgs, packageManager, ... }: {
-   channel = "stable-24.05";
+   channel = "stable-25.05";
     packages = [
       pkgs.nodejs
-      pkgs.git
     ];
 
     # Available options as of 1/17/2024
