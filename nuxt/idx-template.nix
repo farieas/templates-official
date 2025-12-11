@@ -2,7 +2,9 @@
    channel = "stable-25.05";
      packages =
     [
-      pkgs.nodejs
+      pkgs.nodejs 
+      pkgs.j2cli
+      pkgs.nixfmt
     ]
     ++ (
       if packageManager == "pnpm" then
@@ -30,7 +32,7 @@
         --git-init no
 
       mkdir "$out"/.idx
-      cp ${./dev.nix} "$out"/.idx/dev.nix
+      
       chmod -R +w "$out"
 
       cp -rf ${./.idx/airules.md} "$out/.idx/airules.md"
