@@ -40,9 +40,6 @@
       cp -rf ${./.idx/airules.md} "$out/.idx/airules.md"
       cp -rf "$out/.idx/airules.md" "$out/GEMINI.md"
       chmod -R u+w "$out"
-      ${if packageManager == "npm" then
-        "( cd \$out && npm install --ignore-scripts )"
-      else
-      ""}
+      cd $out && ${packageManager} install --ignore-scripts
     '';
 }
