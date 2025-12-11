@@ -1,8 +1,19 @@
 { pkgs, packageManager, template,... }: {
    channel = "stable-25.05";
-    packages = [
+     packages =
+    [
       pkgs.nodejs
-    ];
+    ]
+    ++ (
+      if packageManager == "pnpm" then
+        [ pkgs.nodePackages.pnpm ]
+      else if packageManager == "yarn" then
+        [ pkgs.yarn ]
+      else if packageManager == "bun" then
+        [ pkgs.bun ]
+      else
+        [ ]   # npm → no extra packages
+    );
 
     # Available options as of 1/17/2024
     # https://github.com/nuxt/cli/blob/f113a083f000d19c9ae7f35ae2534ac5c0dba77b/src/commands/init.ts
