@@ -14,7 +14,7 @@
     },
     "pnpm": {
         "packages": "pkgs.nodejs_24 pkgs.nodePackages.pnpm",
-        "install": "pnpm install -yes",
+        "install": "NUXT_TELEMETRY_DISABLED=1 && pnpm install ",
         "startServer": "pnpm run dev",
         "previewWebPrefix": "\"npm\" \"run\" \"dev\" \"--\" \"--port\" \"$PORT\" \"--hostname\" \"0.0.0.0\""
     },
