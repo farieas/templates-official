@@ -1,4 +1,4 @@
-{ pkgs, packageManager, ... }: {
+{ pkgs, packageManager, template,... }: {
    channel = "stable-25.05";
     packages = [
       pkgs.nodejs
